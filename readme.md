@@ -66,19 +66,60 @@ https://www.loom.com/share/0a5ae8b34b804b5985742a2f8db2e1e7?sid=1e5be39d-e25a-46
   - **Feature Development**: Integrating learning path recommendations into their products or services.
   - **User Experience Enhancement**: Using the tool to improve user engagement with tailored educational paths.
 
-- **System Design**
+### Other Potential Audiences
 
-  ```mermaid
-  graph TD
-    A[User] -->|Sends resume and job description| B[NestJS Backend]
-    B -->|Send prompt to extract skills| C[Azure OpenAI]
-    C -->|Extracted skills| B
-    B -->|Calculate match and perform FTS search| D[Azure SQL Database]
-    D -->|Return certifications| B
-    B -->|Send certifications and job description| C
-    C -->|Generate learning path| B
-    B -->|Send learning path to client| A
+```mermaid
+graph TD
+  A[User] -->|Sends resume and job description| B[NestJS Backend]
+  B -->|Send prompt to extract skills| C[Azure OpenAI]
+  C -->|Extracted skills| B
+  B -->|Calculate match and perform FTS search| D[Azure SQL Database]
+  D -->|Return certifications| B
+  B -->|Send certifications and job description| C
+  C -->|Generate learning path| B
+  B -->|Send learning path to client| A
 
-    E[CSV file with certifications data] -->|Uploaded to| F[Azure SQL Database]
-    F -->|Data available for FTS search| D
-  ```
+  E[CSV file with certifications data] -->|Uploaded to| F[Azure SQL Database]
+  F -->|Data available for FTS search| D
+```
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Backend
+    participant AzureOpenAI
+    participant AzureSQL
+    participant DataStudio
+
+    User->>Backend: Sends resume and job description
+    Backend->>AzureOpenAI: Send prompt to extract skills
+    AzureOpenAI-->>Backend: Return extracted skills
+    Backend->>AzureSQL: Calculate match and perform FTS search
+    AzureSQL-->>Backend: Return certifications
+    Backend->>AzureOpenAI: Send certifications and job description
+    AzureOpenAI-->>Backend: Generate learning path
+    Backend->>User: Send learning path
+    DataStudio->>AzureSQL: Upload CSV file with certifications data
+    AzureSQL-->>AzureSQL: Data available for FTS search
+```
+
+```mermaid
+journey
+    title User Journey for Learning Path Builder
+    section Start
+      User: Sends resume and job description
+    section Skill Extraction
+      Backend->>AzureOpenAI: Request skills extraction
+      AzureOpenAI-->>Backend: Provide extracted skills
+    section Certification Search
+      Backend->>AzureSQL: Perform FTS search
+      AzureSQL-->>Backend: Return relevant certifications
+    section Learning Path Generation
+      Backend->>AzureOpenAI: Request learning path
+      AzureOpenAI-->>Backend: Provide learning path
+    section End
+      Backend->>User: Send learning path
+    section Data Upload
+      User uploads CSV to Azure Data Studio
+      Azure Data Studio->>AzureSQL: Upload certifications data
+```
