@@ -1,0 +1,65 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.image-container {
+  display: block;
+  position: relative;
+  margin: 20px;
+}
+
+.hover-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.hover-image:hover {
+  border-color: #b1348c;
+  box-shadow: 0px 0px 8px rgba(177, 52, 140, 0.6);
+}
+
+.styled-div {
+  margin-bottom: 28px;
+  /* padding: 10px; */
+}
+
+.styled-div-md {
+  margin-bottom: 40px;
+  /* padding: 10px; */
+}
+
+p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--colorNeutralForeground6);
+  margin-bottom: 40px;
+}
+
+ul{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--colorNeutralForeground6);
+}
+
+.card-block {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #04a5fb, #582ffb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

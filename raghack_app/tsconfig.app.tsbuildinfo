@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","../raghack_backend/src/services/azureopenai.tsx","../raghack_backend/src/services/advise.service.spec.ts","../raghack_backend/src/services/advise.service.ts","../raghack_backend/src/services/openai.tsx"],"errors":true,"version":"5.6.2"}
