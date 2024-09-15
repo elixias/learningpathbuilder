@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Certification } from './entities/certification.entity';
 import { DatabaseService } from './database.service';
+import 'dotenv/config';
 
 @Module({
   imports: [

@@ -19,29 +19,29 @@ export class AdviseController {
     @Post('get_career_advice')
     async getCareerAdvice(
       @Body('resume') resume: string,
-      @Body('jobDesc') jobDesc: string
+      @Body('jobDescription') jobDescription: string
     ): Promise<any> {
 
       //Enable the following lines to use Azure OpenAI
 
-      // const candidateSkills = await this.aiInferenceService.extractSkillsFromResume(resume)
-      // const requiredSkills = await this.aiInferenceService.extractSkillsFromJobDesc(jobDesc)
-      // const softSkillsResults = compareSkills(candidateSkills['softskills'], requiredSkills['softskills'])
-      // const techSkillsResults = compareSkills(candidateSkills['techskills'], requiredSkills['techskills'])
-      // const certificationsContext = await this.adviseService.findCertifications(techSkillsResults['missingSkills']); //techSkillsResults['missingSkills'];
-      // const certsAsString = parseCertificationsContext(certificationsContext)
-      // const certificationsPath = await this.aiInferenceService.getCertificationsPath(jobDesc, certsAsString)
+      const candidateSkills = await this.aiInferenceService.extractSkillsFromResume(resume)
+      const requiredSkills = await this.aiInferenceService.extractSkillsFromJobDesc(jobDescription)
+      const softSkillsResults = compareSkills(candidateSkills['softskills'], requiredSkills['softskills'])
+      const techSkillsResults = compareSkills(candidateSkills['techskills'], requiredSkills['techskills'])
+      const certificationsContext = await this.adviseService.findCertifications(techSkillsResults['missingSkills']); //techSkillsResults['missingSkills'];
+      const certsAsString = parseCertificationsContext(certificationsContext)
+      const certificationsPath = await this.aiInferenceService.getCertificationsPath(jobDescription, certsAsString)
 
       //Disable the following lines if using Azure OpenAI
       //Mock methods doesn't call the cloud for economical reasons
 
-      const candidateSkills = await this.aiInferenceService.mockExtractSkillsFromResume(resume)
-      const requiredSkills = await this.aiInferenceService.mockExtractSkillsFromJobDesc(jobDesc)
-      const softSkillsResults = compareSkills(candidateSkills['softskills'], requiredSkills['softskills'])
-      const techSkillsResults = compareSkills(candidateSkills['techskills'], requiredSkills['techskills'])
-      const certificationsContext = await this.adviseService.mockFindCertifications(); 
-      const certsAsString = parseCertificationsContext(certificationsContext)
-      const certificationsPath = await this.aiInferenceService.mockGetCertificationsPath(jobDesc, certsAsString)
+      // const candidateSkills = await this.aiInferenceService.mockExtractSkillsFromResume(resume)
+      // const requiredSkills = await this.aiInferenceService.mockExtractSkillsFromJobDesc(jobDesc)
+      // const softSkillsResults = compareSkills(candidateSkills['softskills'], requiredSkills['softskills'])
+      // const techSkillsResults = compareSkills(candidateSkills['techskills'], requiredSkills['techskills'])
+      // const certificationsContext = await this.adviseService.mockFindCertifications(); 
+      // const certsAsString = parseCertificationsContext(certificationsContext)
+      // const certificationsPath = await this.aiInferenceService.mockGetCertificationsPath(jobDesc, certsAsString)
 
       const response = {
         candidateSkills,

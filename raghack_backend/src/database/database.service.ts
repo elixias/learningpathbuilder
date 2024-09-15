@@ -16,7 +16,11 @@ export class DatabaseService {
 
   async freetextsearch(searchTerms: string[], k: number): Promise<Certification[]> {
 
-    const searchTermString = searchTerms.map(search => `"${search}"`).join(' OR ');
+    const escapeSingleQuotes = (str: string) => str.replace(/'/g, "''");
+
+    const searchTermString = searchTerms
+        .map(search => `"${escapeSingleQuotes(search)}"`)
+        .join(' OR ');
 
     // Query using raw SQL to perform a free text search
     const query = `
