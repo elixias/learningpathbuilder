@@ -67,4 +67,18 @@ https://www.loom.com/share/0a5ae8b34b804b5985742a2f8db2e1e7?sid=1e5be39d-e25a-46
   - **User Experience Enhancement**: Using the tool to improve user engagement with tailored educational paths.
 
 - **System Design**
-  ![Mermaid Diagram](https://mermaid-js.github.io/mermaid-live-editor/#/edit/graph%20TD%0A%20%20%20%20A%5BUser%5D%20--%7CSends%20resume%20and%20job%20description%7C%20B%5BNestJS%20Backend%5D%0A%20%20%20%20B%20--%7CSend%20prompt%20to%20extract%20skills%7C%20C%5BAzure%20OpenAI%5D%0A%20%20%20%20C%20--%7CExtracted%20skills%7C%20B%0A%20%20%20%20B%20--%7CCalculate%20match%20and%20perform%20FTS%20search%7C%20D%5BAzure%20SQL%20Database%5D%0A%20%20%20%20D%20--%7CReturn%20certifications%7C%20B%0A%20%20%20%20B%20--%7CSend%20certifications%20and%20job%20description%7C%20C%0A%20%20%20%20C%20--%7CGenerate%20learning%20path%7C%20B%0A%20%20%20%20B%20--%7CSend%20learning%20path%20to%20client%7C%20A%0A%0A%20%20%20%20E%5BCSV%20file%20with%20certifications%20data%5D%20--%7CUploaded%20to%7C%20F%5BAzure%20SQL%20Database%5D%0A%20%20%20%20F%20--%7CData%20available%20for%20FTS%20search%7C%20D)
+
+  ```mermaid
+  graph TD
+    A[User] -->|Sends resume and job description| B[NestJS Backend]
+    B -->|Send prompt to extract skills| C[Azure OpenAI]
+    C -->|Extracted skills| B
+    B -->|Calculate match and perform FTS search| D[Azure SQL Database]
+    D -->|Return certifications| B
+    B -->|Send certifications and job description| C
+    C -->|Generate learning path| B
+    B -->|Send learning path to client| A
+
+    E[CSV file with certifications data] -->|Uploaded to| F[Azure SQL Database]
+    F -->|Data available for FTS search| D
+  ```
