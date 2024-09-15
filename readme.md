@@ -28,11 +28,11 @@ Using RAG combined with Full Text Search, I was able to retrieve relevant certif
 
 ### **Tech Stack**
 
-Frontend: Fluent2 UI (https://fluent2.microsoft.design/), React
-Backend: NestJS
-DB: Azure SQL Database
-Model: AzureOpenAI and OpenAI (GPT 4.o)
-Tools: Azure Data Studio
+- Frontend: Fluent2 UI (https://fluent2.microsoft.design/), React
+- Backend: NestJS
+- DB: Azure SQL Database
+- Model: AzureOpenAI and OpenAI (GPT 4.o)
+- Tools: Azure Data Studio
 
 ### **Video Demo**
 
