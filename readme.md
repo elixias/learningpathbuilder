@@ -4,7 +4,7 @@ The **Certification Learning Path Builder** tool is meant for jobseekers transit
 
 The Microsoft certifications page requires self-exploration to piece together a learning path. This tool streamlines the process for the job seeker, helping users identify the exact courses or certifications needed based on job requirements and skill gaps.
 
-I wanted to move beyond the typical chatbot interface common in RAG applications. This project showcases how RAG can be used in web applications to aid in data extraction, processing, and providing structured answers.
+I wanted to move beyond the typical chatbot interface common in RAG applications. This project showcases how RAG can be used in web applications to aid in data extraction, processing, and providing structured answers (Without dependence on chat UI or embeddings).
 
 ### **Using the tool**
 
@@ -34,6 +34,33 @@ Using RAG combined with Full Text Search, I was able to retrieve relevant certif
 - Model: AzureOpenAI and OpenAI (GPT 4.o)
 - Tools: Azure Data Studio
 
+### **Datasource**
+
+For the data source, certification information was scraped from the Microsoft Credentials page into a csv file. The data is seeded into an Azure SQL database using Azure Data Studio and FTS index was created via MS query. No embeddings were used.
+
 ### **Video Demo**
 
 https://www.loom.com/share/0a5ae8b34b804b5985742a2f8db2e1e7?sid=1e5be39d-e25a-46d2-ab60-68180ae4f591
+
+### Other Potential Audiences
+
+- **Employers and HR Departments**
+
+  - Talent Development: Supporting employees’ professional growth and aligning training with business needs.
+
+- **Educational Institutions**
+
+  - Career Services: Guiding students on certifications and learning paths.
+  - Professional Training Providers: Integrating or promoting certification and training programs.
+
+- **Industry Experts and Consultants**
+
+  - Career Coaches: Advising clients on career development and tailored learning paths.
+
+- **Job Boards and Career Platforms**
+
+  - Platform Integration: Enhancing user value with learning path recommendation tools.
+
+- **Product and Service Teams**
+  - **Feature Development**: Integrating learning path recommendations into their products or services.
+  - **User Experience Enhancement**: Using the tool to improve user engagement with tailored educational paths.
